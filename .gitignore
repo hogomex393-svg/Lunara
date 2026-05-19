@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Build output
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+server/.env
+
+# BFF runtime state (not committed; regenerated on run)
+server/db/*.db
+server/db/*.db-journal
+server/logs/*.jsonl
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+
+# Misc
+*.tmp
+*.swp

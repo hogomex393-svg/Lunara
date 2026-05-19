@@ -1,0 +1,20 @@
+{
+  "name": "lunara-server",
+  "version": "1.0.0",
+  "description": "BFF backend for Lunara - LLM gateway, prompt management, agent tools, persistence",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "eval": "node evals/run.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pino": "^9.4.0",
+    "pino-pretty": "^11.2.2"
+  }
+}
