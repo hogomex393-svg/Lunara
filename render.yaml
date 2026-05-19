@@ -1,0 +1,31 @@
+# Render.com one-click deploy config.
+# https://render.com/docs/blueprint-spec
+#
+# Single web service that:
+#   1. installs root + server deps
+#   2. builds the React app to build/
+#   3. starts server/index.js, which serves both /api/* and the static build/
+services:
+  - type: web
+    name: lunara
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm run render-build
+    startCommand: npm run render-start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
+      - key: OPENROUTER_API_KEY
+        sync: false                  # set this manually in the Render dashboard
+      - key: LLM_MODEL
+        value: meta-llama/llama-3.3-70b-instruct
+      - key: ADMIN_PASSWORD
+        generateValue: true          # auto-generates a random password
+      - key: DB_PATH
+        value: ./db/lunara.db
+      - key: LOG_FILE
+        value: ./logs/llm-calls.jsonl

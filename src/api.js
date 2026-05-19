@@ -6,7 +6,21 @@
  * a single seam for retries, error toast handling, etc.
  */
 
-const BASE = process.env.REACT_APP_API_BASE || 'http://localhost:3001';
+// Auto-detect the BFF base URL:
+//   - If REACT_APP_API_BASE is set at build time, honour it (escape hatch).
+//   - If we're served from CRA's dev server on :3000, the BFF is on :3001.
+//   - Otherwise (single-service deploy, e.g. Render), use relative paths so
+//     /api/chat hits the same origin we were served from.
+function detectBase() {
+  if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_BASE) {
+    return process.env.REACT_APP_API_BASE;
+  }
+  if (typeof window !== 'undefined' && window.location.port === '3000') {
+    return 'http://localhost:3001';
+  }
+  return '';
+}
+const BASE = detectBase();
 
 // For the prototype every session uses the same user id — onboarding fills in
 // the actual profile. In production this would be the authenticated user id.
