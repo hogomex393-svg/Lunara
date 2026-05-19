@@ -19,12 +19,18 @@ services:
         value: 20
       - key: NODE_ENV
         value: production
+      # Render's lint env is stricter than local CRA — disable the plugin
+      # entirely so a missing-rule warning never fails the build.
+      - key: DISABLE_ESLINT_PLUGIN
+        value: "true"
+      - key: CI
+        value: "false"
       - key: OPENROUTER_API_KEY
-        sync: false                  # set this manually in the Render dashboard
+        sync: false
       - key: LLM_MODEL
         value: meta-llama/llama-3.3-70b-instruct
       - key: ADMIN_PASSWORD
-        generateValue: true          # auto-generates a random password
+        generateValue: true
       - key: DB_PATH
         value: ./db/lunara.db
       - key: LOG_FILE

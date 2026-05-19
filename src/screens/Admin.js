@@ -73,8 +73,7 @@ function TemplatesTab({ pw }) {
       setTemplates(r.templates);
       if (r.templates.length) pickTemplate(r.templates[0].id);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pw]);
 
   const pickTemplate = async (id) => {
     const all = await adminListTemplates(pw);
