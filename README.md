@@ -8,7 +8,7 @@ This repository is structured as an applied portfolio piece for AI application d
 
 ## 🎬 Demo Video
 
-[![Lunara Demo Video](https://img.youtube.com/vi/__qw5hSD710/maxresdefault.jpg)](https://youtu.be/__qw5hSD710)
+<a href="https://youtu.be/__qw5hSD710"><img src="https://img.youtube.com/vi/__qw5hSD710/hqdefault.jpg" width="100%" alt="Lunara Demo Video — click to watch"/></a>
 
 > The demo video was produced entirely with **[Remotion](https://www.remotion.dev/)** (a React-based programmatic video framework) and **[Claude](https://www.anthropic.com/claude)** (Anthropic's AI). Every scene, transition, animation, and subtitle was generated through code — no traditional video editing software was used. The narration script, visual layout, and component logic were all authored collaboratively between the team and Claude, with Remotion rendering the final output frame-by-frame.
 
